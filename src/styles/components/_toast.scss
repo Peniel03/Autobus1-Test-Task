@@ -1,0 +1,132 @@
+.toast-container {
+    position: fixed;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: var(--z-toast);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    max-width: 400px;
+    
+    @media (max-width: 576px) {
+      top: var(--spacing-md);
+      right: var(--spacing-md);
+      left: var(--spacing-md);
+      max-width: none;
+    }
+  }
+  
+  .toast {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    border-left: 4px solid var(--color-primary);
+    animation: toastSlideIn var(--transition-normal);
+    
+    &--success {
+      border-left-color: var(--color-success);
+      
+      .toast__icon {
+        color: var(--color-success);
+      }
+    }
+    
+    &--error {
+      border-left-color: var(--color-danger);
+      
+      .toast__icon {
+        color: var(--color-danger);
+      }
+    }
+    
+    &--warning {
+      border-left-color: var(--color-warning);
+      
+      .toast__icon {
+        color: var(--color-warning);
+      }
+    }
+    
+    &--info {
+      border-left-color: var(--color-info);
+      
+      .toast__icon {
+        color: var(--color-info);
+      }
+    }
+    
+    &__icon {
+      flex-shrink: 0;
+      width: 1.25rem;
+      height: 1.25rem;
+      margin-top: 0.125rem;
+    }
+    
+    &__content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    &__title {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-800);
+      margin-bottom: var(--spacing-xs);
+    }
+    
+    &__message {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-600);
+      line-height: var(--line-height-normal);
+    }
+    
+    &__close {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gray-400);
+      background: none;
+      border: none;
+      border-radius: var(--border-radius-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      
+      &:hover {
+        color: var(--color-gray-600);
+        background-color: var(--color-gray-100);
+      }
+    }
+    
+    &--removing {
+      animation: toastSlideOut var(--transition-normal) forwards;
+    }
+  }
+  
+  @keyframes toastSlideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes toastSlideOut {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
