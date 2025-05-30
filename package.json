@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext ts,js --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint src --ext ts,js --report-unused-disable-directives --max-warnings 0",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^20.17.55",
