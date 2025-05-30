@@ -10,7 +10,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: resolve(fileURLToPath(new URL('./index.html', import.meta.url)))
+        main: resolve(__dirname, 'src/index.html')
       }
     }
   },

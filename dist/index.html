@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список контактов</title>
+    <link rel="preload" href="./assets/fonts/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/inter-medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/inter-semibold.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="module" crossorigin src="/assets/main-CG0WoA4d.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-3g33crRZ.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Список контактов</h1>
+                <button class="btn btn--primary header__add-btn" id="addContactBtn">
+                    <span class="btn__icon">+</span>
+                    Добавить контакт
+                </button>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="container">
+                <div class="contacts">
+                    <div class="contacts__sidebar">
+                        <div class="groups">
+                            <div class="groups__header">
+                                <h2 class="groups__title">Группы</h2>
+                                <button class="btn btn--secondary btn--small" id="addGroupBtn">
+                                    Добавить группу
+                                </button>
+                            </div>
+                            <div class="groups__list" id="groupsList">
+                                <!-- Groups will be rendered here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contacts__content">
+                        <div class="contacts__header">
+                            <h2 class="contacts__title">Контакты</h2>
+                            <div class="contacts__filter">
+                                <select class="select" id="groupFilter" aria-label="Фильтр по группам">
+                                    <option value="">Все группы</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="contacts__list" id="contactsList">
+                            <!-- Contacts will be rendered here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal" id="contactModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 class="modal__title" id="contactModalTitle">Добавить контакт</h3>
+                <button class="modal__close" id="closeContactModal">&times;</button>
+            </div>
+            <form class="form" id="contactForm">
+                <div class="form__group">
+                    <label class="form__label" for="contactName">Имя</label>
+                    <input class="form__input" type="text" id="contactName" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="contactPhone">Номер телефона</label>
+                    <input class="form__input" type="tel" id="contactPhone" required>
+                </div>
+                <div class="form__group">
+                    <label class="form__label" for="contactGroup">Группа</label>
+                    <div class="custom-dropdown" id="contactGroupDropdown"></div>
+                </div>
+                <div class="form__actions">
+                    <button type="button" class="btn btn--secondary" id="cancelContactBtn">Отмена</button>
+                    <button type="submit" class="btn btn--primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Group Modal -->
+    <div class="modal" id="groupModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h3 class="modal__title">Добавить группу</h3>
+                <button class="modal__close" id="closeGroupModal">&times;</button>
+            </div>
+            <form class="form" id="groupForm">
+                <div class="form__group">
+                    <label class="form__label" for="groupName">Название группы</label>
+                    <input class="form__input" type="text" id="groupName" required>
+                </div>
+                <div class="form__actions">
+                    <button type="button" class="btn btn--secondary" id="cancelGroupBtn">Отмена</button>
+                    <button type="submit" class="btn btn--primary">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmModal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content modal__content--small">
+            <div class="modal__header">
+                <h3 class="modal__title">Подтверждение</h3>
+            </div>
+            <div class="modal__body">
+                <p id="confirmMessage"></p>
+            </div>
+            <div class="form__actions">
+                <button type="button" class="btn btn--secondary" id="cancelConfirmBtn">Отменить</button>
+                <button type="button" class="btn btn--danger" id="confirmBtn">Подтвердить</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+</body>
+</html>

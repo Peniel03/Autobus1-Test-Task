@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
+    "build": "npx tsc && npx vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext ts,js --report-unused-disable-directives --max-warnings 0",
     "type-check": "tsc --noEmit"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "devDependencies": {
     "@types/node": "^20.17.55",
